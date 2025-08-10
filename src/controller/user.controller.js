@@ -2,13 +2,13 @@ const userModel = require("../model/user.model");
 const bodyValidator = require('../helper/bodyValidator')
 
 exports.registration = async (req, res) => {
-  const {username, email, phone} = req.body;
+  const {username, email, password} = req.body;
   try {
     bodyValidator.checkBody(req, res)
     userModel.create({
       username,
       email,
-      phone,
+      password,
     });
 
     return res.status(200).json({
